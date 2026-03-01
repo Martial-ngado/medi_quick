@@ -20,7 +20,7 @@ class CategoryChip extends StatelessWidget {
         width: 100,
         margin: const EdgeInsets.only(right: 12),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryContainer,
+          color:  Colors.white,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -29,7 +29,7 @@ class CategoryChip extends StatelessWidget {
             Icon(
               icon,
               size: 32,
-              color: Theme.of(context).colorScheme.primary,
+              color: Color.fromARGB(255, 1, 23, 42)
             ),
             const SizedBox(height: 8),
             Text(
@@ -37,7 +37,7 @@ class CategoryChip extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.onPrimaryContainer,
+                color:  Color.fromARGB(255, 1, 23, 42)
               ),
               textAlign: TextAlign.center,
             ),

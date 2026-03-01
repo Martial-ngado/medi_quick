@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pharma/widgets/optionconnect_card.dart';
 import 'package:provider/provider.dart';
 import '../../providers/auth_provider.dart';
 
@@ -65,8 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 60),
                 Icon(
                   Icons.local_pharmacy,
+                  
                   size: 80,
-                  color: Theme.of(context).colorScheme.primary,
+                  color:  Color.fromARGB(255, 1, 23, 42)
                 ),
                 const SizedBox(height: 24),
                 Text(
@@ -140,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ElevatedButton(
                   onPressed: _isLoading ? null : _login,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    backgroundColor:  Color.fromARGB(255, 1, 23, 42),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       
@@ -165,10 +167,33 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Text("Vous n'avez pas de compte ?"),
                     TextButton(
                       onPressed: () => context.go('/register'),
-                      child: const Text('S\'inscrire'),
+                      child: const Text('S\'inscrire',style: TextStyle(color: Color.fromARGB(255, 1, 23, 42)),),
                     ),
                   ],
                 ),
+                SizedBox(height: 10,),
+                const SizedBox(height: 24),
+Row(
+  children: const [
+    Expanded(child: Divider()),
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 12),
+      child: Text('Ou continuer avec', style: TextStyle(color: Colors.grey)),
+    ),
+    Expanded(child: Divider()),
+  ],
+),
+                Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    {'image': 'assets/icons/google.png', 'label': 'Google'},
+    {'image': 'assets/icons/social.png', 'label': 'Apple'},
+    {'image': 'assets/icons/facebook.png', 'label': 'Facebook'},
+  ].map((option) => OptionconnectCard(
+    image: option['image']!,
+  )).toList(),
+)
+
               ],
             ),
           ),

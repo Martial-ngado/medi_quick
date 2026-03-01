@@ -29,9 +29,9 @@ class PharmacyDetailScreen extends StatelessWidget {
             expandedHeight: 200,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(pharmacy.name),
-              background: Image.network(
-                pharmacy.imageUrl,
+              title: Text(pharmacy.name,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+              background: Image.asset(
+               'assets/images/fe.jpg',
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
@@ -154,9 +154,10 @@ class PharmacyDetailScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
+                
                     onPressed: () => _makePhoneCall(pharmacy.phone),
-                    icon: const Icon(Icons.phone),
-                    label: const Text('Appeler'),
+                    icon: const Icon(Icons.phone,color: Colors.black,),
+                    label: const Text('Appeler',style: TextStyle(color: Colors.black),),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -166,8 +167,8 @@ class PharmacyDetailScreen extends StatelessWidget {
                       pharmacy.latitude,
                       pharmacy.longitude,
                     ),
-                    icon: const Icon(Icons.directions),
-                    label: const Text('Itinéraire'),
+                    icon: const Icon(Icons.directions,color: Colors.black,),
+                    label: const Text('Itinéraire',style: TextStyle(color: Colors.black),),
                   ),
                 ),
               ],

@@ -34,8 +34,8 @@ class ProductCard extends StatelessWidget {
                 child: Stack(
                   children: [
                     Center(
-                      child: Image.network(
-                        product.imageUrl,
+                      child: Image.asset(
+                        'assets/images/medd.png',
                         fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) {
                           return const Icon(

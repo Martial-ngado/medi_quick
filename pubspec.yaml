@@ -25,6 +25,9 @@ dependencies:
   # Navigation
   go_router: ^13.0.0
 
+  #upload docs
+  file_picker: ^8.1.2
+
   # Network
   http: ^1.2.0
   dio: ^5.4.0
@@ -34,7 +37,7 @@ dependencies:
   geolocator: ^11.0.0
   geocoding: ^2.1.1
 
-  # Storage
+  # Storage, allows to store data locally
   shared_preferences: ^2.2.2
 
   # Payment
@@ -47,6 +50,16 @@ dependencies:
   intl: ^0.19.0
   uuid: ^4.3.3
   url_launcher: ^6.2.4
+
+  #firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.0
+  google_sign_in: ^6.2.1
+  cloud_firestore: ^5.4.0
+  firebase_database: ^11.2.0
+  firebase_storage: ^12.3.0
+  firebase_messaging: ^15.1.0
+
 
 dev_dependencies:
   flutter_test:

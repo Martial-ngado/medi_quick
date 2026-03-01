@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pharma/widgets/ads_card.dart';
+import 'package:pharma/widgets/search_field.dart';
 import 'package:provider/provider.dart';
 import '../../providers/pharmacy_provider.dart';
 import '../../providers/cart_provider.dart';
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       body: IndexedStack(
         index: _selectedIndex,
         children: _screens,
@@ -42,15 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home,color: Color.fromARGB(255, 1, 23, 42)),
             label: 'Accueil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.medication),
+            icon: Icon(Icons.medication,color: Color.fromARGB(255, 1, 23, 42)),
             label: 'Produits',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person,color: Color.fromARGB(255, 1, 23, 42)),
             label: 'Profil',
           ),
         ],
@@ -68,7 +71,7 @@ class _HomeContent extends StatelessWidget {
       slivers: [
         SliverAppBar(
           floating: true,
-          title: const Text('MediQuick'),
+          title: Icon(Icons.qr_code),
           actions: [
             Consumer<CartProvider>(
               builder: (context, cart, child) {
@@ -76,6 +79,7 @@ class _HomeContent extends StatelessWidget {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.shopping_cart),
+                      color:  Color.fromARGB(255, 1, 23, 42),
                       onPressed: () => context.push('/cart'),
                     ),
                     if (cart.itemCount > 0)
@@ -125,25 +129,16 @@ class _HomeContent extends StatelessWidget {
                 Text(
                   'Trouvez vos médicaments facilement',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.grey,
+                      color: Color.fromARGB(255, 1, 23, 42)
                       ),
                 ),
                 const SizedBox(height: 24),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Rechercher un médicament...',
-                    prefixIcon: const Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    filled: true,
-                    fillColor: Colors.grey.shade300,
-                  ),
-                  onTap: () => context.push('/products'),
-                  readOnly: true,
-                ),
+                SearchField(),
                 const SizedBox(height: 24),
+                AdsCard(),
+                const SizedBox(height: 24),
+
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -159,6 +154,7 @@ class _HomeContent extends StatelessWidget {
                 SizedBox(
                   height: 100,
                   child: ListView(
+                  
                     scrollDirection: Axis.horizontal,
                     children: [
                       CategoryChip(
@@ -196,7 +192,7 @@ class _HomeContent extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () => context.push('/pharmacies'),
-                      child: const Text('Voir tout'),
+                      child: const Text('Voir tout',style: TextStyle(color: Color.fromARGB(255, 1, 23, 42)),),
                     ),
                   ],
                 ),
@@ -208,7 +204,7 @@ class _HomeContent extends StatelessWidget {
           builder: (context, pharmacyProvider, child) {
             if (pharmacyProvider.isLoading) {
               return const SliverFillRemaining(
-                child: Center(child: CircularProgressIndicator()),
+                child: Center(child: CircularProgressIndicator(color: Color.fromARGB(255, 1, 23, 42),)),
               );
             }
 

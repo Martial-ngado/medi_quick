@@ -38,7 +38,7 @@ class PharmacyCard extends StatelessWidget {
                       return Icon(
                         Icons.local_pharmacy,
                         size: 40,
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Color.fromARGB(255, 1, 23, 42)
                       );
                     },
                   ),

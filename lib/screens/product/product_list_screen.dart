@@ -18,6 +18,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey.shade200,
         title: const Text('Médicaments'),
       ),
       body: Column(
@@ -44,6 +45,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 Consumer<ProductProvider>(
                   builder: (context, provider, child) {
                     return SizedBox(
+                  
                       height: 40,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
